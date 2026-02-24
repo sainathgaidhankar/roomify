@@ -52,7 +52,14 @@ const Upload = ({ onComplete }: UploadProps) => {
                             intervalRef.current = null;
                         }
                         timeoutRef.current = setTimeout(() => {
-                            onComplete?.(base64Data);
+                            const finalize = async () => {
+                                const ok = await onComplete?.(base64Data);
+                                if (ok === false) {
+                                    setFile(null);
+                                    setProgress(0);
+                                }
+                            };
+                            void finalize();
                             timeoutRef.current = null;
                         }, REDIRECT_DELAY_MS);
                         return 100;
