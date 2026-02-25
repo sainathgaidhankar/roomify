@@ -76,7 +76,7 @@ export default function Home() {
                       <div className="pulse"></div>
                   </div>
 
-                  <p>Introducing Roomify 2.0</p>
+                  <p>Introducing Roomify</p>
               </div>
 
               <h1>Build beautiful spaces at the speed of thought with Roomify</h1>
